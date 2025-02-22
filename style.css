@@ -1,0 +1,496 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+    transition: background 0.5s ease-in-out;
+}
+
+/* Header */
+header {
+    background: linear-gradient(45deg, rgb(65, 105, 225), #5a81d4);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+header:hover {
+    transform: scale(1.02);
+}
+
+/* ---------------- Fix Navbar & Header Positioning ---------------- */
+header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* Fix header title positioning */
+header h1 {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ---------------- Navbar Styling ---------------- */
+nav {
+    background: royalblue; /* Keep your existing navbar color */
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Center and space navbar items */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Navbar Items */
+nav ul li {
+    display: inline;
+}
+
+/* Navbar Links */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effects */
+nav ul li a:hover {
+    text-decoration: underline;
+    transform: scale(1.1);
+}
+
+/* ---------------- Responsive Navbar for Mobile ---------------- */
+@media screen and (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.8);
+        position: absolute;
+        top: 55px;
+        left: 0;
+        width: 100%;
+        display: none;
+        padding: 15px 0;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px; /* Adjust based on your header height */
+}
+
+
+
+/* Sections */
+section {
+    max-width: 900px;
+    margin: 80px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    opacity: 1 !important;  /* Ensures visibility */
+    display: block !important;
+    
+}
+section::before {
+    content: "";
+    display: block;
+    height: 120px; /* Same as navbar height */
+    margin-top: -120px;
+    visibility: hidden;
+}
+
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Fix body layout so content isn't hidden under fixed header */
+body {
+    padding-top: 80px;
+}
+
+/* Project Cards */
+.project {
+    background: #f8f9fa;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+.project:hover {
+    background:linear-gradient(45deg,(183, 196, 233),#f8f9fa) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+}
+
+#skills ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Ensures responsiveness */
+    list-style: none;
+    padding: 0;
+    gap: 15px;
+}
+
+#skills li {
+    padding: 12px 18px;
+    background: #f8f9fa; /* Light background for a professional look */
+    color: #333;
+    border-radius: 8px; /* Soft rounded corners */
+    font-weight: bold;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+#skills li::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(0, 123, 255, 0.2), rgba(0, 86, 179, 0.2));
+    top: 0;
+    left: -100%;
+    transition: left 0.3s ease-in-out;
+}
+
+#skills li:hover::before {
+    left: 0;
+}
+
+#skills li:hover {
+    transform: translateY(-3px);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+    border-color: #007BFF;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form input, form textarea, form button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+form input:focus, form textarea:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    border-color: #007BFF;
+}
+
+form button {
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+form button:hover {
+    background: #218838;
+    transform: scale(1.1);
+}
+
+/* Fade-in and Slide-up Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure animation runs when section is in view */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* JavaScript will apply "visible" class when section is in view */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Smooth Background Change */
+@keyframes backgroundShift {
+    0% { background: #f4f4f4; }
+    50% { background: #e4e4e4; }
+    100% { background: #f4f4f4; }
+}
+
+body {
+    animation: backgroundShift 5s infinite;
+}
+
+/* Preloader Styles */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #007BFF;
+    border-top: 5px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hide Preloader */
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Star Rating System */
+.rating {
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.star {
+    color: #ccc;
+    transition: color 0.3s ease-in-out, transform 0.2s;
+}
+
+.star:hover, .star.active {
+    color: #FFD700; /* Gold color for selected stars */
+    transform: scale(1.2);
+}
+
+#submit-rating {
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#submit-rating:hover {
+    background: #0056b3;
+}
+/* Adjust Review Section for Small Screens */
+@media (max-width: 768px) {
+    #review {
+        padding: 20px;
+        max-width: 90%;
+        margin: 20px auto;
+    }
+
+    #contactForm {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+
+    .rating {
+        font-size: 1.8rem;
+        gap: 5px;
+    }
+
+    #submit-rating {
+        width: 100%;
+        padding: 12px;
+    }
+}
+
+/* Adjust Inputs & Textarea for Small Screens */
+@media (max-width: 480px) {
+    #contactForm input,
+    #contactForm textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .rating {
+        font-size: 1.5rem;
+    }
+
+    #review h2 {
+        font-size: 20px;
+    }
+}
+/* Adjust Section Width */
+section {
+    max-width: 1200px; /* Increased from 900px */
+    margin: 50px auto; /* Keeps it centered */
+    padding: 25px;
+}
+
+/* Adjust Header Width */
+header, nav {
+    max-width: 100%;
+    padding: 15px 40px; /* Ensures enough spacing but not too much */
+}
+
+/* Reduce Excess Side Space on Larger Screens */
+@media (min-width: 1200px) {
+    section {
+        max-width: 85%; /* Uses more width while keeping a little margin */
+    }
+}
+
+/* Keep Small Space for Small Screens */
+@media (max-width: 768px) {
+    section {
+        max-width: 95%; /* Keeps it readable without stretching */
+        margin: 20px auto;
+    }
+}
+/* Ensure content is not hidden under the fixed header */
+body {
+    padding-top: 100px; /* Adjust according to header height */
+}
+
+/* Alternatively, adjust the first section directly */
+section:first-of-type {
+    margin-top: 120px; /* Moves first section down */
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-image {
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    animation: spin 5s linear infinite; /* Rotate continuously */
+}
+.education-item {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.education-item h3 {
+    color: #0056b3;
+    font-size: 1.4em;
+}
+
+.education-item p {
+    font-size: 1.1em;
+    color: #333;
+}
+
+.education-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+footer {
+    background-color: #f8f8f8; /* Light grey background */
+    color: #333; /* Dark text for contrast */
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+    border-top: 1px solid #ddd; /* Subtle top border */
+}
+
+.footer-container {
+    max-width: auto;
+    margin: auto;
+}
+
+footer nav a {
+    color: #333;
+    text-decoration: none;
+    
+}
+
+footer nav a:hover {
+    text-decoration: underline;
+}
+.hidden {
+    display: none;
+}
+
+#loading {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.spinner {
+    width: 25px;
+    height: 25px;
+    border: 3px solid rgba(0, 0, 0, 0.3);
+    border-top: 3px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Hide scrollbar for all elements */
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    scrollbar-width: none;  
+    -ms-overflow-style: none;  
+}
+
